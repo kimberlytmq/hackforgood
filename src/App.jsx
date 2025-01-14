@@ -9,19 +9,19 @@ import Popup from './components/MeetingPopup/MeetingPopup.jsx';
 
 
 function App() {
- const [isPopupOpen, setIsPopupOpen] = useState(false);
+ const [isMeetingPopupOpen, setIsMeetingPopupOpen] = useState(false);
 
 
  return (
    <Router>
-     <Navbar setIsPopupOpen={setIsPopupOpen} />
+     <Navbar setIsMeetingPopupOpen={setIsMeetingPopupOpen} />
      <Routes>
        <Route path="/" element={<Navigate to="/home" />} />
        <Route path="/home" element={<Home />} />
        <Route path="/calendar" element={<Calendar />} />
        <Route path="/projects" element={<Projects />} />
      </Routes>
-     {isPopupOpen && <Popup setIsPopupOpen={setIsPopupOpen} />}
+     {isMeetingPopupOpen && <Popup setIsMeetingPopupOpen={setIsMeetingPopupOpen} />}
    </Router>
  );
 }

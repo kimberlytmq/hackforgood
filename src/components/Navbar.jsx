@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCalendarAlt, faProjectDiagram, faPlusCircle, faTasks } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css';
 
-function Navbar( {setIsPopupOpen} ) {
+function Navbar( {setIsMeetingPopupOpen} ) {
  const handleClick = () => {
-   setIsPopupOpen(true);
+   setIsMeetingPopupOpen(true);
  };
 
  return (

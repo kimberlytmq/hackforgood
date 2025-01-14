@@ -1,18 +1,18 @@
-function Popup({ setIsPopupOpen }) {
+function MeetingPopup({ setIsMeetingPopupOpen }) {
   const handleClose = () => {
-    setIsPopupOpen(false); // Close the popup
+    setIsMeetingPopupOpen(false); // Close the popup
   };
  
  
   return (
-    <div className="popup">
+    <div className="Meetingpopup">
       <div onClick={handleClose} className="overlay"></div>
-      <div className="popup-content">
+      <div className="Meetingpopup-content">
         <h2>Add Meeting</h2>
         <p>
           Choose the people you want to meet with and the time slots you're free!
         </p>
-        <button className="close-popup" onClick={handleClose}>
+        <button className="close-Meetingpopup" onClick={handleClose}>
           CLOSE
         </button>
       </div>
@@ -21,5 +21,5 @@ function Popup({ setIsPopupOpen }) {
  }
  
  
- export default Popup;
+ export default MeetingPopup;
  
