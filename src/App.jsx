@@ -5,7 +5,7 @@ import './App.css';
 import Home from './pages/Home.jsx';
 import Calendar from './pages/Calendar.jsx';
 import Projects from './pages/Projects.jsx';
-import Popup from './components/Popup/Popup.jsx';
+import Popup from './components/MeetingPopup/MeetingPopup.jsx';
 
 
 function App() {
