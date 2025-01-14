@@ -1,0 +1,40 @@
+body.active-popup {
+    overflow-y: hidden;
+}
+
+.popup, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    background: rgba(49, 49, 49, 0.8);
+}
+
+.popup .popup-content { /* More specific selector */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: blue; /* Blue background */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    min-width: 300px;
+    z-index: 1000;
+    border: 3px solid black; /* Make the border more visible */
+    box-sizing: border-box;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 7px;
+}
