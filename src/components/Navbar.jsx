@@ -4,20 +4,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCalendarAlt, faProjectDiagram, faPlusCircle, faTasks } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css';
 
-function Navbar( {setIsPopupOpen} ) {
- const handleClick = () => {
-   setIsPopupOpen(true);
+function Navbar( {setIsMeetingPopupOpen, setIsTaskPopupOpen} ) {
+ const handleMeetingClick = () => {
+   setIsMeetingPopupOpen(true);
  };
+
+ const handleTaskClick = () => {
+  setIsTaskPopupOpen(true);
+};
+
+
 
  return (
    <div className="sidebar">
      <Link to="/" className="sidebar-link">
        <FontAwesomeIcon icon={faHome} /> Home
      </Link>
-     <div className="sidebar-link" onClick={handleClick}>
+     <div className="sidebar-link" onClick={handleMeetingClick}>
        <FontAwesomeIcon icon={faPlusCircle} /> Add Meeting
      </div>
-     <div className="sidebar-link" onClick={() => alert('Add Task Popup')}>
+     <div className="sidebar-link" onClick={handleTaskClick}>
        <FontAwesomeIcon icon={faTasks} /> Add Task
      </div>
      <Link to="/calendar" className="sidebar-link">

@@ -5,23 +5,30 @@ import './App.css';
 import Home from './pages/Home.jsx';
 import Calendar from './pages/Calendar.jsx';
 import Projects from './pages/Projects.jsx';
-import Popup from './components/Popup/Popup.jsx';
+import MeetingPopup from './components/MeetingPopup/MeetingPopup.jsx';
+import TaskPopup from './components/TaskPopup/TaskPopup.jsx';
 
 
 function App() {
- const [isPopupOpen, setIsPopupOpen] = useState(false);
+ const [isMeetingPopupOpen, setIsMeetingPopupOpen] = useState(false);
+ const [isTaskPopupOpen, setIsTaskPopupOpen] = useState(false);
+
 
 
  return (
    <Router>
-     <Navbar setIsPopupOpen={setIsPopupOpen} />
+     <Navbar 
+        setIsMeetingPopupOpen={setIsMeetingPopupOpen} 
+        setIsTaskPopupOpen={setIsTaskPopupOpen}
+        />
      <Routes>
        <Route path="/" element={<Navigate to="/home" />} />
        <Route path="/home" element={<Home />} />
        <Route path="/calendar" element={<Calendar />} />
        <Route path="/projects" element={<Projects />} />
      </Routes>
-     {isPopupOpen && <Popup setIsPopupOpen={setIsPopupOpen} />}
+     {isMeetingPopupOpen && <MeetingPopup setIsMeetingPopupOpen={setIsMeetingPopupOpen} />}
+     {isTaskPopupOpen && <TaskPopup setIsTaskPopupOpen={setIsTaskPopupOpen} />}
    </Router>
  );
 }
