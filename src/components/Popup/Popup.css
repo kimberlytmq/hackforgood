@@ -1,48 +1,40 @@
 body.active-popup {
     overflow-y: hidden;
- }
- 
- 
- .btn-popup {
-    padding: 10px 20px;
-    display: block;
-    margin: 100px auto 0;
-    font-size: 18px;
- }
- 
- 
- .popup, .overlay {
+}
+
+.popup, .overlay {
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     position: fixed;
- }
- 
- 
- .overlay {
-    background: rgba(49,49,49,0.8);
- }
- .popup-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    background: rgba(49, 49, 49, 0.8);
+}
+
+.popup .popup-content { /* More specific selector */
     position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Offset by half its own width and height */
-    background: #f1f1f1;
-    padding: 20px 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: blue; /* Blue background */
+    padding: 20px;
     border-radius: 8px;
-    max-width: 500px; /* Max width to avoid too large a popup */
-    min-width: 300px; /* Min width to ensure it doesn't shrink too small */
-    z-index: 1000; /* Popup content appears above the overlay */
- }
- 
- 
- .close-popup {
+    max-width: 500px;
+    min-width: 300px;
+    z-index: 1000;
+    border: 3px solid black; /* Make the border more visible */
+    box-sizing: border-box;
+}
+
+.close-popup {
     position: absolute;
     top: 10px;
     right: 10px;
     padding: 5px 7px;
- }
- 
+}
