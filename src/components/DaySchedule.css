@@ -1,0 +1,34 @@
+/* Container for the whole schedule */
+.schedule-container {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Flex container to align time slots horizontally */
+.time-slot-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* Individual time slots */
+.time-slot {
+  min-width: 150px;
+  height: 80px;
+  background-color: #e0f7fa;
+  color: #00796b;
+  text-align: center;
+  line-height: 80px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: 1px solid #004d40;
+  cursor: pointer;
+}
+
+.time-slot:hover {
+  background-color: #b2ebf2;
+}

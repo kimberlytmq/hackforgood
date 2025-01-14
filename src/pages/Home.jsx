@@ -1,7 +1,13 @@
-//import React from 'react';
+import React from 'react';
+import DaySchedule from '../components/DaySchedule';
 
 function Home() {
-  return <div>Welcome to the Home Page!</div>;
+  return (
+    <div className="App">
+      <h1>Day Schedule</h1>
+      <DaySchedule />
+    </div>
+  )
 }
 
 export default Home;
