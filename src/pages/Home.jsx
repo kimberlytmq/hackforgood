@@ -4,7 +4,7 @@ import DaySchedule from '../components/DaySchedule';
 function Home() {
   return (
     <div className="App">
-      <h1>Day Schedule</h1>
+      <h1>Hey there! Here's your schedule for today</h1>
       <DaySchedule />
     </div>
   )
