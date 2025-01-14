@@ -1,0 +1,43 @@
+.sidebar {
+    height: 100%;
+    width: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #D1DEE5;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sidebar-link {
+    padding: 31px 10px;
+    text-decoration: none;
+    font-size: 10px;
+    color: rgb(109, 109, 109);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    text-align: center;
+  }
+  
+  .sidebar-link .fa-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .sidebar-link:hover {
+    background-color: #B0C4DE;
+    color: #000;
+  }
+  
+  .sidebar-link:active {
+    color: rgb(105, 123, 132);
+  }
+  
+  .sidebar-link:active .fa-icon {
+    color: rgb(105, 123, 132);
+  }
