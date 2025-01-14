@@ -1,22 +1,49 @@
-import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import './App.css';
-import Home from './pages/Home.jsx';
-import Calendar from './pages/Calendar.jsx';
-import Projects from './pages/Projects.jsx';
+import React from "react"
+import Signup from "./components/SignUp"
+import { Container } from "react-bootstrap"
+import { AuthProvider } from "./contexts/AuthContext"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Dashboard from "./Dashboard"
+import Login from "./components/Login"
+import ForgotPassword from "./components/ForgotPassword"
+import UpdateProfile from "./components/UpdateProfile"
+import PrivateRoute from "./components/PrivateRoute"
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/calendar" element={<Calendar />} />
-        <Route path="/projects" element={<Projects />} />
-      </Routes>
-    </Router>
-  );
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh" }}
+    >
+      <div className="w-100" style={{ maxWidth: "400px" }}>
+        <Router>
+          <AuthProvider>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PrivateRoute>
+                    <Dashboard />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/update-profile"
+                element={
+                  <PrivateRoute>
+                    <UpdateProfile />
+                  </PrivateRoute>
+                }
+              />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+            </Routes>
+          </AuthProvider>
+        </Router>
+      </div>
+    </Container>
+  )
 }
 
-export default App;
+export default App
