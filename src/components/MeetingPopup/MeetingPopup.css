@@ -24,7 +24,7 @@ body.active-popup {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: beige; /* Blue background */
+    background: lightcyan; 
     padding: 20px;
     border-radius: 8px;
     max-width: 2000px;
@@ -39,79 +39,133 @@ body.active-popup {
     top: 10px;
     right: 10px;
     padding: 5px 7px;
+    background: white;
 }
 
-.calendar-section {
-  margin-top: 20px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+/* Add these styles for the Duration dropdown */
+.box.duration select {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #f9f9f9;
+    box-sizing: border-box;
 }
 
-.calendar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
+.box.duration label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
 }
 
-.calendar-header button {
-  padding: 5px 10px;
-  background: none;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  cursor: pointer;
+/* Styles for the Timeslot dropdown section */
+.box.timeslot {
+    margin-bottom: 15px; /* Space between form elements */
 }
 
-.calendar-header button:hover {
-  background: #f0f0f0;
+.box.timeslot label {
+    display: block;
+    margin-bottom: 5px; /* Space between label and dropdown */
+    font-size: 14px;
+    font-weight: bold;
+    color: #333; /* Dark gray for better visibility */
 }
 
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
+.box.timeslot select {
+    width: 100%; /* Full-width dropdown */
+    padding: 10px; /* Padding inside the dropdown */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 14px; /* Slightly larger text for readability */
+    background: #f9f9f9; /* Light background for a clean look */
+    box-sizing: border-box; /* Prevents padding from affecting width */
+    cursor: pointer; /* Pointer cursor for better UX */
 }
 
-.calendar-day-header {
-  text-align: center;
-  font-weight: bold;
-  padding: 5px;
-  color: #666;
+.box.timeslot select:focus {
+    outline: none; /* Remove default blue outline on focus */
+    border-color: #007bff; /* Highlight border on focus */
+    background: #e6f7ff; /* Light blue background on focus */
 }
 
-.calendar-day {
-  text-align: center;
-  padding: 8px;
-  cursor: pointer;
-  border-radius: 4px;
-}
 
-.calendar-day:hover {
-  background: #f0f0f0;
-}
+/* Add these new styles to your existing MeetingPopup.css */
 
-.calendar-day.selected {
-  background: #007bff;
-  color: white;
-}
-
-.calendar-day.empty {
-  cursor: default;
-}
-
-/* Adjust the popup content width to accommodate the calendar */
-.Meetingpopup .Meetingpopup-content {
-  min-width: 400px;
-  max-width: 500px;
-}
-
-/* Make the form elements stretch full width */
-.box input,
-.box select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
+.calendar-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 10px;
+  }
+  
+  .calendar-nav {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .calendar-nav button {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 10px;
+  }
+  
+  .calendar-weekday {
+    text-align: center;
+    font-weight: 500;
+    color: #666;
+    padding: 5px;
+  }
+  
+  .calendar-day {
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .calendar-day:hover {
+    background: #f0f0f0;
+  }
+  
+  .calendar-day.selected {
+    background: #e6f3ff;
+    color: #0066cc;
+  }
+  
+  /* Make form elements look better */
+  .box {
+    margin-bottom: 15px;
+  }
+  
+  .box label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .box input,
+  .box select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
