@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DaySchedule.css';
 
 const timeSlots = [
@@ -12,8 +12,8 @@ const meetings = [
 ]
 
 const tasks = [
-  { time: '10:00 AM', description: 'Meeting with team' },
-  { time: '01:00 PM', description: 'Work on project' },
+  { description: 'Meeting with team' },
+  { description: 'Work on project' },
 ];
 
 const notifications = [
@@ -23,15 +23,32 @@ const notifications = [
 ];
 
 const DaySchedule = () => {
+
+  const [taskStatus, setTaskStatus] = useState(
+    tasks.map(() => false)
+  );
+
+  const handleCheckboxChange = (index) => {
+    const updatedTaskStatus = [...taskStatus];
+    updatedTaskStatus[index] = !updatedTaskStatus[index];
+    setTaskStatus(updatedTaskStatus);
+  }
+
   return (
     <div className="day-schedule">
+      
       {/* Scrollable Schedule */}
       <div className="schedule-container">
-        <div className="time-slot-container">
+        <div className="time-labels">
           {timeSlots.map((time, index) => (
-            <div className="time-slot" key={index}>
+            <div key={index} className="time-label">
               {time}
             </div>
+          ))}
+        </div>
+        <div className="time-slot-container">
+          {timeSlots.map((_, index) => (
+          <div key={index} className="time-slot"></div>
           ))}
         </div>
         <div className="meetings-container">
@@ -40,8 +57,8 @@ const DaySchedule = () => {
             key={index}
             className="meeting-block"
             style={{
-              left: `${timeSlots.indexOf(meeting.startTime) * 160}px`,
-              width: `${(timeSlots.indexOf(meeting.endTime) - timeSlots.indexOf(meeting.startTime)) * 160}px`
+              left: `${timeSlots.indexOf(meeting.startTime) * 120}px`,
+              width: `${(timeSlots.indexOf(meeting.endTime) - timeSlots.indexOf(meeting.startTime)) * 120}px`
             }}
           >
             {meeting.title}
@@ -57,8 +74,13 @@ const DaySchedule = () => {
           <h2>Tasks for Today</h2>
           <ul>
             {tasks.map((task, index) => (
-              <li key={index}>
-                <strong>{task.time}</strong>: {task.description}
+              <li key={index} className={taskStatus[index] ? 'completed' : ''}>
+                <input
+                  type="checkbox"
+                  checked={taskStatus[index]}
+                  onChange={() => handleCheckboxChange(index)}
+                />
+                {task.description}
               </li>
             ))}
           </ul>
