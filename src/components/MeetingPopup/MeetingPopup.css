@@ -24,7 +24,7 @@ body.active-popup {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: beige; 
+    background: lightcyan; 
     padding: 20px;
     border-radius: 8px;
     max-width: 2000px;
@@ -41,6 +41,55 @@ body.active-popup {
     padding: 5px 7px;
     background: white;
 }
+
+/* Add these styles for the Duration dropdown */
+.box.duration select {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #f9f9f9;
+    box-sizing: border-box;
+}
+
+.box.duration label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Styles for the Timeslot dropdown section */
+.box.timeslot {
+    margin-bottom: 15px; /* Space between form elements */
+}
+
+.box.timeslot label {
+    display: block;
+    margin-bottom: 5px; /* Space between label and dropdown */
+    font-size: 14px;
+    font-weight: bold;
+    color: #333; /* Dark gray for better visibility */
+}
+
+.box.timeslot select {
+    width: 100%; /* Full-width dropdown */
+    padding: 10px; /* Padding inside the dropdown */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 14px; /* Slightly larger text for readability */
+    background: #f9f9f9; /* Light background for a clean look */
+    box-sizing: border-box; /* Prevents padding from affecting width */
+    cursor: pointer; /* Pointer cursor for better UX */
+}
+
+.box.timeslot select:focus {
+    outline: none; /* Remove default blue outline on focus */
+    border-color: #007bff; /* Highlight border on focus */
+    background: #e6f7ff; /* Light blue background on focus */
+}
+
 
 /* Add these new styles to your existing MeetingPopup.css */
 
