@@ -12,8 +12,8 @@ const meetings = [
 ]
 
 const tasks = [
-  { time: '10:00 AM', description: 'Meeting with team' },
-  { time: '01:00 PM', description: 'Work on project' },
+  { description: 'Meeting with team' },
+  { description: 'Work on project' },
 ];
 
 const notifications = [
@@ -40,8 +40,8 @@ const DaySchedule = () => {
             key={index}
             className="meeting-block"
             style={{
-              left: `${timeSlots.indexOf(meeting.startTime) * 160}px`,
-              width: `${(timeSlots.indexOf(meeting.endTime) - timeSlots.indexOf(meeting.startTime)) * 160}px`
+              left: `${timeSlots.indexOf(meeting.startTime) * 120}px`,
+              width: `${(timeSlots.indexOf(meeting.endTime) - timeSlots.indexOf(meeting.startTime)) * 120}px`
             }}
           >
             {meeting.title}
@@ -58,7 +58,7 @@ const DaySchedule = () => {
           <ul>
             {tasks.map((task, index) => (
               <li key={index}>
-                <strong>{task.time}</strong>: {task.description}
+                {task.description}
               </li>
             ))}
           </ul>
