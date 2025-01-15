@@ -1,37 +1,52 @@
-import React, { useState } from 'react'; // Ensure React and useState are imported
-import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import './App.css';
-import Home from './pages/Home.jsx';
-import Calendar from './pages/Calendar.jsx';
-import Projects from './pages/Projects.jsx';
-import MeetingPopup from './components/MeetingPopup/MeetingPopup.jsx';
-import TaskPopup from './components/TaskPopup/TaskPopup.jsx';
-import ProjectPage from './components/projectPage.jsx';
-
+//import React from "react"
+import Signup from "./components/SignUp"
+import { Container } from "react-bootstrap"
+import { AuthProvider } from "./contexts/AuthContext"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Dashboard from "./Dashboard"
+import Login from "./components/Login"
+import ForgotPassword from "./components/ForgotPassword"
+import UpdateProfile from "./components/UpdateProfile"
+import PrivateRoute from "./components/PrivateRoute"
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
- const [isMeetingPopupOpen, setIsMeetingPopupOpen] = useState(false);
- const [isTaskPopupOpen, setIsTaskPopupOpen] = useState(false);
-
- return (
-   <Router>
-     <Navbar 
-        setIsMeetingPopupOpen={setIsMeetingPopupOpen} 
-        setIsTaskPopupOpen={setIsTaskPopupOpen}
-        />
-     <Routes>
-       <Route path="/" element={<Navigate to="/home" />} />
-       <Route path="/home" element={<Home />} />
-       <Route path="/calendar" element={<Calendar />} />
-       <Route path="/projects" element={<Projects />} />
-       <Route path="/project/:name" element={<ProjectPage />} />
-     </Routes>
-     {isMeetingPopupOpen && <MeetingPopup setIsMeetingPopupOpen={setIsMeetingPopupOpen} />}
-     {isTaskPopupOpen && <TaskPopup setIsTaskPopupOpen={setIsTaskPopupOpen} />}
-   </Router>
- );
+  return (
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh" }}
+    >
+      <div className="w-100" style={{ maxWidth: "400px" }}>
+        <Router>
+          <AuthProvider>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PrivateRoute>
+                    <Dashboard />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/update-profile"
+                element={
+                  <PrivateRoute>
+                    <UpdateProfile />
+                  </PrivateRoute>
+                }
+              />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+            </Routes>
+            <ToastContainer />
+          </AuthProvider>
+        </Router>
+      </div>
+    </Container>
+  )
 }
 
-
-export default App;
+export default App
