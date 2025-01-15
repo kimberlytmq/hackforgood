@@ -6,6 +6,11 @@ const timeSlots = [
   '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM'
 ];
 
+const meetings = [
+  { startTime: '09:00 AM', endTime: '10:00 AM', title: 'Morning check in'},
+  { startTime: '03:00 PM', endTime: '05:00 PM', title: 'Project meeting'}
+]
+
 const tasks = [
   { time: '10:00 AM', description: 'Meeting with team' },
   { time: '01:00 PM', description: 'Work on project' },
@@ -28,6 +33,20 @@ const DaySchedule = () => {
               {time}
             </div>
           ))}
+        </div>
+        <div className="meetings-container">
+        {meetings.map((meeting, index) => (
+          <div
+            key={index}
+            className="meeting-block"
+            style={{
+              left: `${timeSlots.indexOf(meeting.startTime) * 160}px`,
+              width: `${(timeSlots.indexOf(meeting.endTime) - timeSlots.indexOf(meeting.startTime)) * 160}px`
+            }}
+          >
+            {meeting.title}
+          </div>
+        ))}
         </div>
       </div>
 
