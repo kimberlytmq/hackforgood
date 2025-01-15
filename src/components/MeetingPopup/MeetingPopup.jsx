@@ -72,7 +72,7 @@ function MeetingPopup({ setIsMeetingPopupOpen }) {
           </div>
         </div>
         <button className="close-Meetingpopup" onClick={handleClose}>
-          CLOSE
+          X
         </button>
       </div>
     </div>

@@ -24,7 +24,7 @@ body.active-popup {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: beige; /* Blue background */
+    background: beige; 
     padding: 20px;
     border-radius: 8px;
     max-width: 2000px;
@@ -39,79 +39,84 @@ body.active-popup {
     top: 10px;
     right: 10px;
     padding: 5px 7px;
+    background: white;
 }
 
-.calendar-section {
-  margin-top: 20px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
+/* Add these new styles to your existing MeetingPopup.css */
 
-.calendar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.calendar-header button {
-  padding: 5px 10px;
-  background: none;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.calendar-header button:hover {
-  background: #f0f0f0;
-}
-
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-}
-
-.calendar-day-header {
-  text-align: center;
-  font-weight: bold;
-  padding: 5px;
-  color: #666;
-}
-
-.calendar-day {
-  text-align: center;
-  padding: 8px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.calendar-day:hover {
-  background: #f0f0f0;
-}
-
-.calendar-day.selected {
-  background: #007bff;
-  color: white;
-}
-
-.calendar-day.empty {
-  cursor: default;
-}
-
-/* Adjust the popup content width to accommodate the calendar */
-.Meetingpopup .Meetingpopup-content {
-  min-width: 400px;
-  max-width: 500px;
-}
-
-/* Make the form elements stretch full width */
-.box input,
-.box select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
+.calendar-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 10px;
+  }
+  
+  .calendar-nav {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .calendar-nav button {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 10px;
+  }
+  
+  .calendar-weekday {
+    text-align: center;
+    font-weight: 500;
+    color: #666;
+    padding: 5px;
+  }
+  
+  .calendar-day {
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .calendar-day:hover {
+    background: #f0f0f0;
+  }
+  
+  .calendar-day.selected {
+    background: #e6f3ff;
+    color: #0066cc;
+  }
+  
+  /* Make form elements look better */
+  .box {
+    margin-bottom: 15px;
+  }
+  
+  .box label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .box input,
+  .box select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
