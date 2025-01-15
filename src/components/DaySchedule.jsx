@@ -6,39 +6,54 @@ const timeSlots = [
   '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM'
 ];
 
-// Sample events
-const events = [
-  { startTime: '09:00 AM', endTime: '10:00 AM', title: 'Morning Meeting' },
-  { startTime: '01:00 PM', endTime: '02:30 PM', title: 'Lunch with client' },
-  { startTime: '03:00 PM', endTime: '04:00 PM', title: 'Project Discussion' }
+const tasks = [
+  { time: '10:00 AM', description: 'Meeting with team' },
+  { time: '01:00 PM', description: 'Work on project' },
+];
+
+const notifications = [
+  'Reminder: Meeting at 10:00 AM',
+  'Project deadline approaching!',
+  'New task added: Design review',
 ];
 
 const DaySchedule = () => {
   return (
-    <div className="schedule-container">
-      {/* Time slots */}
-      <div className="time-slot-container">
-        {timeSlots.map((time, index) => (
-          <div className="time-slot" key={index}>
-            {time}
-          </div>
-        ))}
+    <div className="day-schedule">
+      {/* Scrollable Schedule */}
+      <div className="schedule-container">
+        <div className="time-slot-container">
+          {timeSlots.map((time, index) => (
+            <div className="time-slot" key={index}>
+              {time}
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Events */}
-      <div className="events-container">
-        {events.map((event, index) => (
-          <div
-            key={index}
-            className="event-block"
-            style={{
-              left: `${timeSlots.indexOf(event.startTime) * 160}px`,
-              width: `${(timeSlots.indexOf(event.endTime) - timeSlots.indexOf(event.startTime)) * 160}px`
-            }}
-          >
-            {event.title}
-          </div>
-        ))}
+      {/* Task List and Notifications */}
+      <div className="task-notification-container">
+        {/* Left Section: Task List */}
+        <div className="task-list">
+          <h2>Tasks for Today</h2>
+          <ul>
+            {tasks.map((task, index) => (
+              <li key={index}>
+                <strong>{task.time}</strong>: {task.description}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Right Section: Notifications */}
+        <div className="notifications">
+          <h2>Notifications</h2>
+          <ul>
+            {notifications.map((notification, index) => (
+              <li key={index}>{notification}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
