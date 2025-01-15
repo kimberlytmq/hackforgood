@@ -11,10 +11,12 @@ body.active-popup {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10000;
 }
 
 .overlay {
     background: rgba(49, 49, 49, 0.8);
+    z-index: 9999
 }
 
 .Meetingpopup .Meetingpopup-content { /* More specific selector */
@@ -22,12 +24,12 @@ body.active-popup {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: blue; /* Blue background */
+    background: beige; /* Blue background */
     padding: 20px;
     border-radius: 8px;
-    max-width: 500px;
+    max-width: 2000px;
     min-width: 300px;
-    z-index: 1000;
+    z-index: 10001;
     border: 3px solid black; /* Make the border more visible */
     box-sizing: border-box;
 }

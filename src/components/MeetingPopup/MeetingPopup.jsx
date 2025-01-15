@@ -1,3 +1,5 @@
+import './MeetingPopup.css';
+
 function MeetingPopup({ setIsMeetingPopupOpen }) {
   const handleClose = () => {
     setIsMeetingPopupOpen(false); // Close the popup
@@ -10,6 +12,29 @@ function MeetingPopup({ setIsMeetingPopupOpen }) {
       <div className="Meetingpopup-content">
         <h2>Add Meeting</h2>
         <p>
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
+          Choose the people you want to meet with and the time slots you're free!
           Choose the people you want to meet with and the time slots you're free!
         </p>
         <button className="close-Meetingpopup" onClick={handleClose}>
