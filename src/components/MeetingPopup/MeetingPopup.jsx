@@ -3,6 +3,8 @@ import './MeetingPopup.css';
 
 function MeetingPopup({ setIsMeetingPopupOpen }) {
   const [currentMonth, setCurrentMonth] = useState('June 2024');
+  const [duration, setDuration] = useState('');
+
   
   const handleClose = () => {
     setIsMeetingPopupOpen(false);
@@ -38,7 +40,17 @@ function MeetingPopup({ setIsMeetingPopupOpen }) {
               <option value="Dueet">Dueet</option>
             </select>
           </div>
-          
+          <div className="box">
+            <label>Duration:</label>
+            <select>
+              <option value="" disabled>Select duration</option>
+              <option value="15">15 Minutes</option>
+              <option value="30">30 Minutes</option>
+              <option value="60">1 Hour</option>
+              <option value="120">2 Hours</option>
+            </select>
+          </div>
+
           {/* Calendar Section */}
           <div className="calendar-container">
             <div className="calendar-header">
