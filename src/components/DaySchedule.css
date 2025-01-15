@@ -1,0 +1,156 @@
+/* Container for the whole schedule */
+.day-schedule {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.time-labels {
+  display: flex;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  z-index: 1;
+}
+
+.time-label {
+  width: 200px;
+  text-align: center;
+  color: #00796b;
+  font-weight: bold;
+}
+
+/* Scrollable schedule*/
+.schedule-container {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 20px;
+  background-color: #d8d5d5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+.schedule-container::-webkit-scrollbar {
+  height: 8px;
+  background: #f0f0f0;
+}
+
+.schedule-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.time-slot-container {
+  display: flex;
+  gap: 20px;
+}
+
+.time-slot {
+  width: 120px;
+  height: 80px;
+  border-right: 1px solid #ccc;
+  color: #00796b;
+  text-align: center;
+  line-height: 80px;
+  font-weight: bold;
+}
+
+.meetings-container {
+  position: absolute;
+  top: 10;
+  height: 80px;
+  display: flex;
+
+}
+
+.meeting-block {
+  position: absolute;
+  height: 80px;
+  background-color: #f2bc6b;
+  color: #4e342e;
+  text-align: center;
+  line-height: 70px;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 3;
+}
+
+.time-slot:hover {
+  background-color: #b2ebf2;
+}
+
+/* Task and Notification Container */
+.task-notification-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+/* Left Section: Task List */
+.task-list {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-list h2 {
+  margin-bottom: 10px;
+  color: #00796b;
+}
+
+.task-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Strikethrough completed tasks */
+.task-list li.completed {
+  text-decoration: line-through;
+  color: #888;  /* Change the text color when the task is completed */
+}
+
+.task-list li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Right Section: Notifications */
+.notifications {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.notifications h2 {
+  margin-bottom: 10px;
+  color: #00796b;
+}
+
+.notifications ul {
+  list-style: none;
+  padding: 0;
+}
+
+.notifications li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
