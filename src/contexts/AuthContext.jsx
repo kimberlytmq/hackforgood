@@ -1,62 +1,39 @@
-import React, { useContext, useState, useEffect } from "react"
-import { auth } from "../../firebase"
+// src/contexts/AuthContext.jsx
+import { createContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebase';
 
-const AuthContext = React.createContext()
+const AuthContext = createContext();
 
-export function useAuth() {
-  return useContext(AuthContext)
-}
+export const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [authToken, setAuthToken] = useState(null);
 
-export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState()
-  const [loading, setLoading] = useState(true)
+    useEffect(() => {
+         const unsubscribe = onAuthStateChanged(auth, async (user) => {
+              if(user){
+                 setUser(user);
+                 const token = await user.getIdToken();
+                 setAuthToken(token);
+              } else{
+                setUser(null);
+                setAuthToken(null);
+              }
+           setLoading(false);
+          });
+         return () => unsubscribe();
+    }, []);
+    const value = { user, loading, authToken };
+    return (
+      <AuthContext.Provider value={value}>
+        {!loading && children}
+      </AuthContext.Provider>
+    )
+};
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
-  function signup(email, password) {
-    return auth.createUserWithEmailAndPassword(email, password)
-  }
-
-  function login(email, password) {
-    return auth.signInWithEmailAndPassword(email, password)
-  }
-
-  function logout() {
-    return auth.signOut()
-  }
-
-  function resetPassword(email) {
-    return auth.sendPasswordResetEmail(email)
-  }
-
-  function updateEmail(email) {
-    return currentUser.updateEmail(email)
-  }
-
-  function updatePassword(password) {
-    return currentUser.updatePassword(password)
-  }
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      setCurrentUser(user)
-      setLoading(false)
-    })
-
-    return unsubscribe
-  }, [])
-
-  const value = {
-    currentUser,
-    login,
-    signup,
-    logout,
-    resetPassword,
-    updateEmail,
-    updatePassword
-  }
-
-  return (
-    <AuthContext.Provider value={value}>
-      {!loading && children}
-    </AuthContext.Provider>
-  )
-}
+export default AuthContext;

@@ -1,15 +1,16 @@
-import React, { useRef } from 'react'
-import { Card, Button, Form } from 'react-bootstrap'
+import /*React,*/ { useRef, useState } from 'react'
+import { Card, Button, Form, Alert } from 'react-bootstrap'
+import { useNavigate, Link } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth';
 
 export default function SignUp() {
-
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
   const { signup } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const history = useHistory()
+  const navigate = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -22,7 +23,7 @@ export default function SignUp() {
       setError("")
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      history.push("/")
+      navigate("/")
     } catch {
       setError("Failed to create an account")
     }
