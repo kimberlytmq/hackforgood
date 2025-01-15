@@ -5,14 +5,33 @@
   border-radius: 8px;
 }
 
-/* Scrollable schedule styling (unchanged) */
+.time-labels {
+  display: flex;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  z-index: 1;
+}
+
+.time-label {
+  width: 200px;
+  text-align: center;
+  color: #00796b;
+  font-weight: bold;
+}
+
+/* Scrollable schedule*/
 .schedule-container {
   position: relative;
   width: 100%;
   overflow-x: auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #d8d5d5;
   border: 1px solid #ccc;
   border-radius: 8px;
   white-space: nowrap;
@@ -46,23 +65,24 @@
 
 .meetings-container {
   position: absolute;
-  top: 0;
+  top: 10;
   height: 80px;
   display: flex;
+
 }
 
 .meeting-block {
   position: absolute;
-  height: 70px;
-  background-color: #ffcc80;
+  height: 80px;
+  background-color: #f2bc6b;
   color: #4e342e;
   text-align: center;
   line-height: 70px;
   font-weight: bold;
   border-radius: 8px;
-  border: 1px solid #bf360c;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  z-index: 3;
 }
 
 .time-slot:hover {
@@ -99,6 +119,16 @@
 .task-list li {
   padding: 8px 0;
   border-bottom: 1px solid #e0e0e0;
+}
+
+/* Strikethrough completed tasks */
+.task-list li.completed {
+  text-decoration: line-through;
+  color: #888;  /* Change the text color when the task is completed */
+}
+
+.task-list li input[type="checkbox"] {
+  margin-right: 10px;
 }
 
 /* Right Section: Notifications */
