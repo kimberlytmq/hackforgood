@@ -1,7 +1,7 @@
 // src/components/Login.jsx
 import /*React,*/ { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
-import { useAuth } from '../hooks/useAuth';
+// import { useAuth } from '../hooks/useAuth';
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { login } = useAuth();
+  // const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function Login() {
       await signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value);
       console.log("User logged in successfully!");
       toast.success("User logged in successfully", {position: "top-center"});
-      navigate("/home");
+      navigate("/place");
     } catch (error) {
       console.error('Login error:', error); // Debugging log
       setError("Failed to log in");
