@@ -57,7 +57,7 @@ const DaySchedule = () => {
             key={index}
             className="meeting-block"
             style={{
-              left: `${timeSlots.indexOf(meeting.startTime) * 120}px`,
+              left: `${timeSlots.indexOf(meeting.startTime) * 200}px`,
               width: `${(timeSlots.indexOf(meeting.endTime) - timeSlots.indexOf(meeting.startTime)) * 120}px`
             }}
           >

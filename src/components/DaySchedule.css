@@ -6,17 +6,11 @@
 }
 
 .time-labels {
-  display: flex;
-  gap: 20px;
-  position: sticky;
-  top: 0;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ccc;
-  z-index: 1;
+  display: contents;
 }
 
 .time-label {
-  width: 200px;
+  width: 250px;
   text-align: center;
   color: #00796b;
   font-weight: bold;
@@ -28,7 +22,8 @@
   width: 100%;
   overflow-x: auto;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 80px;
+  grid-template-columns: repeat(10, 150px);
   gap: 10px;
   padding: 20px;
   background-color: #d8d5d5;
@@ -49,8 +44,7 @@
 }
 
 .time-slot-container {
-  display: flex;
-  gap: 20px;
+  display: contents;
 }
 
 .time-slot {
@@ -85,9 +79,6 @@
   z-index: 3;
 }
 
-.time-slot:hover {
-  background-color: #b2ebf2;
-}
 
 /* Task and Notification Container */
 .task-notification-container {
