@@ -59,24 +59,27 @@
 
 .meetings-container {
   position: absolute;
-  top: 10;
-  height: 80px;
-  display: flex;
-
+  top: 0; 
+  left: 0;
+  height: 80px; 
+  width: 100%;
 }
 
 .meeting-block {
   position: absolute;
-  height: 80px;
+  top: 0; 
   background-color: #f2bc6b;
   color: #4e342e;
   text-align: center;
-  line-height: 70px;
   font-weight: bold;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  height: 90px; 
+  line-height: 90px; 
   z-index: 3;
+  padding: 0 10px; 
+  overflow: hidden;
+  box-sizing: border-box; 
+  transform: translateY(50px);
 }
 
 

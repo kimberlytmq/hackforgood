@@ -52,18 +52,22 @@ const DaySchedule = () => {
           ))}
         </div>
         <div className="meetings-container">
-        {meetings.map((meeting, index) => (
-          <div
-            key={index}
-            className="meeting-block"
-            style={{
-              left: `${timeSlots.indexOf(meeting.startTime) * 200}px`,
-              width: `${(timeSlots.indexOf(meeting.endTime) - timeSlots.indexOf(meeting.startTime)) * 120}px`
-            }}
-          >
-            {meeting.title}
-          </div>
-        ))}
+        {meetings.map((meeting, index) => {
+          const startHour = parseInt(meeting.startTime.split(':')[0]) % 12 + (meeting.startTime.includes('PM') ? 12 : 0);
+          const endHour = parseInt(meeting.endTime.split(':')[0]) % 12 + (meeting.endTime.includes('PM') ? 12 : 0);
+          return (
+            <div
+              key={index}
+              className="meeting-block"
+              style={{
+                left: `${(startHour - 8) * 300}px`,
+                width: `${(endHour - startHour) * 160}px`,
+              }}
+            >
+              {meeting.title}
+            </div>
+          );
+        })}
         </div>
       </div>
 
