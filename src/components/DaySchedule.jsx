@@ -17,7 +17,7 @@ const tasks = [
 ];
 
 const notifications = [
-  'Reminder: Meeting at 10:00 AM',
+  'Reminder: Meeting at 09:00 AM',
   'Project deadline approaching!',
   'New task added: Design review',
 ];
@@ -55,13 +55,16 @@ const DaySchedule = () => {
         {meetings.map((meeting, index) => {
           const startHour = parseInt(meeting.startTime.split(':')[0]) % 12 + (meeting.startTime.includes('PM') ? 12 : 0);
           const endHour = parseInt(meeting.endTime.split(':')[0]) % 12 + (meeting.endTime.includes('PM') ? 12 : 0);
+          
+          const startIndex = startHour - 7;
+          const endIndex = endHour - 7; 
           return (
             <div
               key={index}
               className="meeting-block"
               style={{
-                left: `${(startHour - 8) * 300}px`,
-                width: `${(endHour - startHour) * 160}px`,
+                left: `${startIndex * 150}px`,  
+                width: `${(endIndex - startIndex) * 160}px`,
               }}
             >
               {meeting.title}
