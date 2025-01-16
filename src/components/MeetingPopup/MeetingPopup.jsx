@@ -2,21 +2,20 @@ import React, { useState } from 'react';
 import './MeetingPopup.css';
 
 function MeetingPopup({ setIsMeetingPopupOpen }) {
-  const [currentMonth, setCurrentMonth] = useState('June 2024');
+  const [currentMonth, setCurrentMonth] = useState('JAN 2025');
 
   
   const handleClose = () => {
     setIsMeetingPopupOpen(false);
   };
 
-  // Array of weekdays and dates
   const weekDays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
   const days = [
-    [2,3,4,5,6,7,8],
-    [9,10,11,12,13,14,15],
-    [16,17,18,19,20,21,22],
-    [23,24,25,26,27,28,29],
-    [30,'','','','','','']
+    ['','','',1,2,3,4],
+    [5,6,7,8,9,10,11],
+    [12,13,14,15,16,17,18],
+    [19,20,21,22,23,24,25],
+    [26,27,28,29,30,31,'']
   ];
 
   return (
@@ -62,7 +61,7 @@ function MeetingPopup({ setIsMeetingPopupOpen }) {
             </select>
           </div>
 
-          {/* Calendar Section */}
+          {/* Calendar */}
           <div className="calendar-container">
             <div className="calendar-header">
               <h3>{currentMonth}</h3>
@@ -73,14 +72,13 @@ function MeetingPopup({ setIsMeetingPopupOpen }) {
             </div>
             
             <div className="calendar-grid">
-              {/* Weekday headers */}
               {weekDays.map(day => (
                 <div key={day} className="calendar-weekday">
                   {day}
                 </div>
               ))}
               
-              {/* Calendar days */}
+              {/* Calendar */}
               {days.map((week, weekIndex) => (
                 week.map((day, dayIndex) => (
                   <div 
