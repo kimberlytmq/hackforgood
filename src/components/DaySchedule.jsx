@@ -7,8 +7,7 @@ const timeSlots = [
 ];
 
 const meetings = [
-  { startTime: '09:00 AM', endTime: '10:00 AM', title: 'Morning check in'},
-  { startTime: '03:00 PM', endTime: '05:00 PM', title: 'Project meeting'}
+  { startTime: '09:00 AM', endTime: '10:00 AM', title: 'Morning check in'}
 ]
 
 const tasks = [
